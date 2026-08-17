@@ -8,8 +8,8 @@
    и переключить CTA/форму на wa.me/tel. Пока всё ведёт в Instagram. */
 const CONTACT = {
   instagram: 'https://www.instagram.com/pathos.astana',
-  phone: '',      // TODO: '+7 7...' — от клиента
-  whatsapp: ''    // TODO: '7707...' — цифры для wa.me
+  phone: '+77758000555',
+  whatsapp: '77758000555'   // основной канал связи (wa.me)
 };
 
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

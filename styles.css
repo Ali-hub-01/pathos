@@ -707,3 +707,10 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   .hero-eq, .karaoke-eq{ display:none; }
   .marquee-track{ animation:none; flex-wrap:wrap; width:auto; }
 }
+
+/* Вторичная ссылка Instagram (WhatsApp — основной) */
+.ig-second{
+  display:inline-block; margin-top:14px; color:var(--gold-2);
+  font-size:.9rem; opacity:.85; transition:color .3s, opacity .3s;
+}
+.ig-second:hover{ color:var(--gold); opacity:1; }
