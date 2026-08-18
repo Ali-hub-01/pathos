@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ali-hub-01.github.io/pathos/sitemap.xml
+Sitemap: https://pathos-astana.kz/sitemap.xml
