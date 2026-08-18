@@ -297,9 +297,11 @@ if (form) {
     ].filter(Boolean).join('\n');
 
     if (CONTACT.whatsapp) {
-      // TODO (Opus): включится автоматически, когда появится номер WhatsApp
       window.open(`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
     }
+
+    // Google Ads: конверсия "Отправка формы для потенциальных клиентов"
+    if (typeof window.gtag_report_lead === 'function') window.gtag_report_lead();
 
     $('#bf-done').hidden = false;
     form.querySelectorAll('input, select, textarea, button').forEach(el => { el.tabIndex = -1; });
@@ -310,9 +312,14 @@ if (form) {
 document.addEventListener('click', e => {
   const cta = e.target.closest('[data-cta]');
   if (!cta) return;
-  // TODO (Opus): здесь повесить gtag('event', ...) по типу cta.dataset.cta
-  // типы: 'instagram' | 'whatsapp' | 'phone'
-});
+  const type = cta.dataset.cta;
+  // Google Ads: WhatsApp/Instagram → "Контакт"; tel: → "Интерактивные номера телефонов"
+  if ((type === 'whatsapp' || type === 'instagram') && typeof window.gtag_report_contact === 'function') {
+    window.gtag_report_contact();
+  } else if (type === 'phone' && typeof window.gtag_report_phone === 'function') {
+    window.gtag_report_phone();
+  }
+}, true);
 
 /* ══════════ Год в футере ══════════ */
 $('#year').textContent = new Date().getFullYear();
